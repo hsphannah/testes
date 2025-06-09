@@ -7,12 +7,12 @@
     <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-        <script>
-                         (function(){
-                         emailjs.init("Rt5wDSGDdDjPdwP9a"); 
-                         })();
-         </script>
-    </head>
+    <script>
+        (function(){
+            emailjs.init("Rt5wDSGDdDjPdwP9a"); // Substitua por seu ID de usuário EmailJS
+        })();
+    </script>
+</head>
 <body>
 
     <header>
@@ -23,13 +23,13 @@
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
-                 </button>
+               </button>
             </div>
             <nav>
                 <ul>
                     <li><a href="#home">Início</a></li> <li><a href="#sobre">Sobre Nós</a></li> <li><a href="#cursos">Nossos Cursos</a></li>
                     <li><a href="#galeria">Galeria de Desenhos</a></li>
-                    <li><a href="#unidades">Nossas Unidades</a></li>
+                    <li><a href="#find-unit">Nossas Unidades</a></li>
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
@@ -54,7 +54,7 @@
                     <iframe
                         width="560"
                         height="315"
-                        src="https://www.youtube.com/embed/Y6bc5iAzfeo?si=pVyvpsDhNUJ7yjgO"title="YouTube video player"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin"
@@ -147,23 +147,23 @@
                             <img src="imagens/kawaii.jpg" alt="Kawaii de Aluno">
                             <p>Kawaii</p>
                         </div>
-                        </div>
+                   </div>
                 </div>
             </div>
         </section>
 
-       <section id="find-unit" class="section-padding">
-    <div class="container">
-        <h2>Encontre a Unidade Mais Próxima</h2>
-        <div class="cep-search-container">
-            <input type="text" id="cepInput" placeholder="Digite seu CEP (ex: 88000-000)" maxlength="9">
-            <button id="searchCepBtn" class="btn-primary">Buscar Unidade</button>
-            <div id="cepError" class="error-message"></div>
-            <div id="unitResults">
+        <section id="find-unit" class="section-padding">
+            <div class="container">
+                <h2>Encontre a Unidade Mais Próxima</h2>
+                <div class="cep-search-container">
+                    <input type="text" id="cepInput" placeholder="Digite seu CEP (ex: 88000-000)" maxlength="9">
+                    <button id="searchCepBtn" class="btn-primary">Buscar Unidade</button>
+                    <div id="cepError" class="error-message"></div>
+                    <div id="unitResults">
+                    </div>
                 </div>
-        </div>
-    </div>
-</section>
+            </div>
+        </section>
 
         <section id="contato" class="contact">
             <div class="container">
@@ -173,7 +173,7 @@
                 <div class="contact-content-wrapper">
                     <div class="contact-form-column">
                         <h3>Envie sua Mensagem</h3>
-                        <form action="#" method="POST">
+                        <form action="#" method="POST" id="form-contato">
                             <div class="form-group">
                                 <label for="nome">Nome:</label>
                                 <input type="text" id="nome" name="nome" required>
@@ -204,37 +204,99 @@
                             <p class="review-text">Minha filha Valentina ama as aulas da niki. Ela frequenta a sede do estreito, e adora estar lá aprendendo com o prof Gustavo</p>
                             <p class="reviewer-name">Fernanda Fernandes <span class="stars">★★★★★</span></p>
                         </div>
-                        <a href="https://www.google.com/search?sca_esv=237638b250c80c54&hl=pt-BR&gl=br&sxsrf=AHTn8zpCSlDcDK4VnIA7eJ2dUb3yyB5rCg:1748031433855&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzS6QqToaq2Y2NDl3TA8XL1BQ0loG26JLYK1jK0sDxj1zjrDSYzBqxmPypVs4-TT2yoiuxRQslXrbFFdx8STtUmboTS6OmR5zhph8wD2ujuR1o2Nw4wuWleU6bkNnrYhtK8KtkII%3D&q=ANIK+ART+SCHOOL+CENTRO+FLORIANOPOLIS+Coment%C3%A1rios&sa=X&ved=2ahUKEwjhia_FtLqNAxWXO7kGHZw3CUwQ0bkNegQIIhAE&biw=1680&bih=835&dpr=2" target="_blank" class="btn-saiba-mais">Ver Mais Avaliações no Google</a>
+                        <a href="https://www.google.com/search?sca_esv=237638b250c80c54&hl=pt-BR&gl=br&sxsrf=AHTn8zpCSlDcDK4VnIA7eJ2dUb3yyB5rCg:1748031433855&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzS6QqToaq2Y2NDl3TA8XL1BQ0loG26JLYK1jK0sDxj1zjrDSYzBqxmPypVs4-TT2yoiuxRQslXrbFFdx8STtUmboTS6OmR5zhph8wD2ujuR1o2Nw4wuWleU6bkNnrYhtK8KtkII%3D&q=ANIK+ART+SCHOOL+CENTRO+FLORIANOPOLIS+Coment%C3%A1rios&sa=X&ved=2ahUKEwjhia_FtLqNAxWXO7kGHZw3CUwQ0bkNegQIIhAE&biw=1680&bih=835&dpr=1" target="_blank" class="btn-saiba-mais">Ver Mais Avaliações no Google</a>
                     </div>
                 </div>
-            </div> </section>
-    </main> <footer>
+            </div>
+        </section>
+    </main>
+    <footer>
         <div class="container">
             <p>© 2025 Anik Art School. Todos os direitos reservados.</p>
             <div class="social-links">
                 <a href="https://www.instagram.com/anikartschool/" target="_blank">Instagram</a>
-                <a href="https://www.youtube.com/@anikartschool0/featured" target="_blank">Youtube</a>
-                <a href="https://wa.me/message/OVI2GSZT6WMUB1" target="_blank">WhatsApp</a> </div>
+                <a href="https://www.youtube.com/@AnikArtSchool" target="_blank">Youtube</a>
+                <a href="https://wa.me/message/OVI2GSZT6WMUB1" target="_blank">WhatsApp</a>
+            </div>
         </div>
         <div id="lightbox" class="lightbox">
-    <span class="close-btn">&times;</span>
-    <img class="lightbox-content" id="lightbox-img" src="" alt="Imagem em destaque">
-    <div id="lightbox-caption" class="lightbox-caption"></div>
-</div>
+            <span id="closeLightboxBtn" class="close-btn">×</span>
+            <img class="lightbox-content" id="lightbox-img" src="" alt="Imagem em destaque">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
     </footer>
+
+    <button id="openModalBtn" class="btn-primary">Inscreva-se Agora</button>
+
+    <div id="modalOverlay" class="modal-overlay">
+    <div class="modal-content">
+        <span id="closeModalBtn" class="close-btn">×</span>
+        
+        <div class="modal-image-column">
+            <img src="imagens/sua-imagem-aqui.png" alt="Promoção Art Anik School">
+            </div>
+
+        <div class="modal-form-column">
+            <h2>Cadastre-se</h2>
+            <p>Preencha e garanta sua vaga em nossos cursos!</p>
+            
+            <form id="modalForm">
+                <div class="form-group">
+                    <label for="popup-nome">Nome Completo:</label>
+                    <input type="text" id="popup-nome" name="user_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="popup-email">E-mail:</label>
+                    <input type="email" id="popup-email" name="user_email" required>
+                </div>
+                <div class="form-group">
+                    <label for="popup-telefone">Telefone (WhatsApp):</label>
+                    <input type="tel" id="popup-telefone" name="user_phone" placeholder="(XX) XXXXX-XXXX" required>
+                </div>
+                <div class="form-group">
+                    <label for="popup-curso">Curso de Interesse:</label>
+                    <select id="popup-curso" name="selected_course" required>
+                        <option value="">Selecione um curso</option>
+                        <option value="Desenho Básico">Desenho Básico</option>
+                        <option value="Mangá">Mangá</option>
+                        <option value="Kawaii">Kawaii</option>
+                        <option value="Artístico">Artístico</option>
+                        <option value="Moda">Moda</option>
+                        <option value="Personagens">Personagens</option>
+                        <option value="Game">Game</option>
+                        <option value="Inglês com Arte">Inglês com Arte</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="popup-unidade">Unidade de Interesse:</label>
+                    <select id="popup-unidade" name="unidade">
+                        <option value="">Selecione uma unidade</option>
+                        <option value="Centro">Unidade Centro</option>
+                        <option value="Norte da Ilha">Unidade Norte da Ilha</option>
+                        <option value="Campeche">Unidade Campeche</option>
+                        <option value="Online">Online</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Inscrição</button>
+            </form>
+        </div>
+    </div>
+</div>
+
     <script>
-    document.getElementById('form-contato')?.addEventListener('submit', function(event) {
-      event.preventDefault();
-      emailjs.sendForm('SEU_SERVICE_ID', 'SEU_TEMPLATE_ID', this)
-        .then(function(response) {
-          alert('Mensagem enviada com sucesso!');
-          document.getElementById('form-contato').reset();
-        }, function(error) {
-          alert('Ocorreu um erro ao enviar a mensagem. Tente novamente.');
-          console.error(error);
+        document.getElementById('form-contato')?.addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Substitua 'SEU_SERVICE_ID' e 'SEU_TEMPLATE_ID' pelos seus IDs reais do EmailJS
+            emailjs.sendForm('service_XXXXX', 'template_XXXXX', this)
+                .then(function(response) {
+                    alert('Mensagem enviada com sucesso!');
+                    document.getElementById('form-contato').reset();
+                }, function(error) {
+                    alert('Ocorreu um erro ao enviar a mensagem. Tente novamente.');
+                    console.error(error);
+                });
         });
-    });
-  </script>
+    </script>
     <script src="script.js"></script>
 
 </body>
