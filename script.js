@@ -255,22 +255,30 @@ if (modalForm) {
             });
     });
 
-    // Máscara para o telefone no modal
-    const popupTelefoneInput = document.getElementById('popup-telefone');
-    if (popupTelefoneInput) {
-        popupTelefoneInput.addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
-            if (value.length > 0) {
-                value = `(${value.substring(0, 2)}`;
-            }
-            if (value.length > 3) {
-                value += `) ${value.substring(2, 7)}`;
-            }
-            if (value.length > 10) {
-                value += `-${value.substring(7, 11)}`;
-            }
-            e.target.value = value;
-        });
-    }
+   // --- Máscara para o telefone no modal (VERSÃO CORRIGIDA) ---
+const popupTelefoneInput = document.getElementById('popup-telefone');
+
+if (popupTelefoneInput) {
+    popupTelefoneInput.addEventListener('input', function (e) {
+        // Pega o valor atual e remove tudo que não for número
+        let value = e.target.value.replace(/\D/g, '');
+
+        // Limita o número de dígitos a 11 (DDD + 9 dígitos)
+        value = value.substring(0, 11);
+
+        // Aplica a formatação dinamicamente
+        if (value.length > 2) {
+            // Formato (XX) X....
+            value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
+        }
+        if (value.length > 9) {
+            // Formato (XX) XXXXX-XXXX
+            value = `${value.substring(0, 10)}-${value.substring(10)}`;
+        }
+
+        // Atualiza o valor no campo
+        e.target.value = value;
+    });
+}
 
 }); 
