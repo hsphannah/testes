@@ -1,0 +1,887 @@
+/* --- Variáveis CSS (Paleta de Cores e Fontes - Opcional, mas recomendado!) --- */
+:root {
+    --primary-red: #e74c3c; /* Vermelho principal (claro) */
+    --dark-red: #c0392b;    /* Vermelho mais escuro/vinho */
+    --dark-gray: #333;      /* Cinza escuro para texto/fundos */
+    --medium-gray: #555;    /* Cinza médio */
+    --light-gray: #f0f0f0;  /* Cinza muito claro/quase branco */
+    --border-gray: #ddd;    /* Cinza para bordas */
+    --white: #fff;          /* Branco */
+    --gold-star: #FFD700;   /* Amarelo para estrelas */
+
+    --font-primary: Arial, sans-serif;
+}
+
+
+/* --- Estilos Gerais (Reset e Tipografia Base) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    background-color: var(--light-gray); /* Fundo claro para o corpo */
+    color: var(--dark-gray); /* Cor de texto principal */
+    /* Padding-top inicial para desktop e telas maiores */
+    padding-top: 130px; /* Baseado no logo de 80px + padding do header */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2, h3 {
+    color: var(--dark-gray); /* Cor para cabeçalhos */
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--primary-red); /* Vermelho para links */
+    text-decoration: none;
+}
+
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Botões de Ação Gerais */
+.btn-cta, .btn-saiba-mais, .btn-submit {
+    display: inline-block;
+    background-color: var(--primary-red); /* Vermelho para botões de ação */
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: none; /* Garante que não tenham borda padrão */
+    cursor: pointer;
+}
+
+.btn-cta:hover, .btn-saiba-mais:hover, .btn-submit:hover {
+    background-color: var(--dark-red); /* Vermelho mais escuro no hover */
+    text-decoration: none;
+    color: var(--white); /* Mantém o texto branco no hover */
+}
+
+
+/* --- Header (Cabeçalho) --- */
+header {
+    background-color: var(--white); /* Fundo branco */
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: padding 0.3s ease, height 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease; /* Transição para os itens dentro do container */
+}
+
+.logo img {
+    height: 80px; /* Tamanho normal do logo (desktop) */
+    transition: height 0.3s ease;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: var(--medium-gray); /* Cinza para links de navegação */
+    font-weight: bold;
+    padding: 5px 0;
+    transition: color 0.3s ease, font-size 0.3s ease; /* Adiciona transição para font-size */
+}
+
+nav ul li a:hover {
+    color: var(--primary-red); /* Vermelho ao passar o mouse */
+    text-decoration: none;
+}
+
+/* --- Estilos do Cabeçalho MINIMIZADO (adicionados quando a classe 'scrolled' está presente) --- */
+header.scrolled {
+    padding: 5px 0; /* Padding menor quando rolado (desktop) */
+    background-color: var(--white);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15); /* Sombra mais sutil ao encolher */
+}
+
+header.scrolled .logo img {
+    height: 45px; /* Tamanho menor do logo quando rolado (desktop) */
+}
+
+header.scrolled nav ul li a {
+    font-size: 0.9em; /* Fonte um pouco menor */
+}
+
+
+/* --- ESTILOS DO MENU HAMBÚRGUER (Adicione antes da seção de responsividade) --- */
+
+/* O botão hambúrguer fica escondido por padrão em telas grandes */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-direction: column;
+  gap: 5px; /* Espaço entre as barras */
+  z-index: 1001; /* Garante que fique acima do menu que vai deslizar */
+}
+
+/* Estilo das 3 barrinhas dentro do botão */
+.hamburger-btn .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--dark-gray);
+  transition: all 0.3s ease-in-out;
+}
+
+
+/* --- Header Responsividade (NOVA VERSÃO COM MENU HAMBÚRGUER) --- */
+@media (max-width: 768px) {
+
+  /* 1. AJUSTE NO CONTAINER DO HEADER */
+  header .container {
+    /* Mantemos o layout em linha, para o logo e o botão ficarem lado a lado */
+    flex-direction: row; 
+    justify-content: space-between; /* Garante logo na esquerda e botão na direita */
+  }
+
+  /* 2. MOSTRAR O BOTÃO HAMBÚRGUER */
+  .hamburger-btn {
+    display: flex; /* Agora o botão aparece em telas menores */
+  }
+
+  /* 3. ESTILO DO PAINEL DE NAVEGAÇÃO MOBILE */
+  nav {
+    /* O menu começa fora da tela, à direita */
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    width: 70%; /* Ocupa 70% da largura da tela */
+    max-width: 320px; /* Largura máxima para não ficar gigante em tablets */
+    height: 100vh; /* Altura total da tela */
+    
+    /* Estilo visual do painel */
+    background-color: var(--dark-gray); 
+    padding-top: 6rem; /* Espaço no topo para não colar os links */
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+
+    /* Animação de entrada e saída */
+    transition: right 0.4s ease-in-out;
+  }
+
+  /* 4. ESTADO ATIVO DO MENU (QUANDO O JS ADICIONA A CLASSE 'active') */
+  nav.active {
+    right: 0; /* Move o menu para a tela */
+  }
+
+  /* 5. ESTILO DOS LINKS DENTRO DO PAINEL MOBILE */
+  nav ul {
+    flex-direction: column; /* Links empilhados na vertical */
+    align-items: center; /* Centraliza os links no painel */
+    width: 100%;
+    gap: 1.5rem; /* Espaçamento entre os links */
+  }
+
+  nav ul li {
+    margin-left: 0; /* Remove a margem da versão desktop */
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li a {
+    color: var(--white); /* Links brancos para contraste */
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 0;
+    display: block; /* Faz o link ocupar toda a largura do <li> */
+  }
+
+  nav ul li a:hover {
+    color: var(--white);
+    background-color: var(--primary-red); /* Fundo vermelho no hover */
+  }
+
+  /* 6. AJUSTE NO PADDING DO BODY E SCROLL */
+  
+  /* A altura do cabeçalho agora é fixa, então podemos usar um padding menor */
+  body {
+    padding-top: 80px; /* Altura do header: logo (60px) + padding (2*10px) */
+  }
+
+  header {
+    padding: 10px 0;
+  }
+
+  .logo img {
+    height: 60px; /* Tamanho fixo do logo no mobile */
+  }
+
+  /* Remove o comportamento de esconder a nav com scroll, pois o botão faz isso */
+  header.scrolled nav {
+    display: block; /* Garante que o CSS do menu hambúrguer sempre se aplique */
+  }
+  
+  /* Ajusta o ponto de parada da âncora para a altura do cabeçalho mobile */
+  section[id] {
+    scroll-margin-top: 80px;
+  }
+}
+
+    /* **MUDANÇA CRUCIAL AQUI PARA O BODY PADDING-TOP EM MOBILE** */
+    body {
+        /* A altura do cabeçalho NORMAL em mobile (não rolado) com a nav visível.
+           Estimei: Logo (60px) + padding Header (2*10px) + nav margin-top (10px) +
+           altura da nav (aprox. 6 links * ~20px de altura por link + margens) = ~240px.
+           Coloquei um valor generoso para garantir que nada seja coberto. */
+        padding-top: 250px; /* AJUSTE ESTE VALOR APÓS TESTAR NO SEU DISPOSITIVO */
+    }
+
+    /* Estilos do header no estado MINIMIZADO (rolado) em mobile */
+    header.scrolled {
+        padding: 5px 0; /* Padding menor para o cabeçalho minimizado em mobile */
+    }
+
+    header.scrolled .logo img {
+        height: 40px; /* Logo minimizado no mobile */
+    }
+
+    header.scrolled nav {
+        /* Para esconder a navegação quando o cabeçalho estiver minimizado no mobile. */
+        display: none; /* ESSA ERA A LINHA FALTANDO! */
+    }
+
+    /* **MUDANÇA CRUCIAL AQUI PARA O SCROLL-MARGIN-TOP EM MOBILE** */
+    section[id] {
+        /* A altura do cabeçalho minimizado no mobile (apenas logo visível).
+           Estimativa: Logo (40px) + padding Header (2*5px) = 50px.
+           Adicione uma folga: 70px. */
+        scroll-margin-top: 70px; /* AJUSTE ESTE VALOR APÓS TESTAR */
+    }
+
+
+/* --- Hero Section (Destaque) --- */
+.hero {
+    background-color: var(--dark-gray); /* Fundo cinza escuro para a seção hero */
+    color: var(--white);
+    text-align: center;
+    padding: 80px 0;
+    background-image: url('imagens/aquarela-anik.jpg'); /* Caminho para sua imagem de fundo */
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: var(--white); /* Título branco no fundo escuro */
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Hero Section Responsividade */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2em;
+    }
+}
+
+
+/* --- Seções Gerais (Aplicado a todas as <section>) --- */
+section {
+    padding: 60px 0;
+    background-color: var(--white); /* Fundo branco padrão para seções */
+    margin-bottom: 20px; /* Espaço entre as seções */
+}
+
+/* Estilos para seções alternadas */
+section:nth-child(even) {
+    background-color: var(--dark-red);
+    color: var(--white); /* Texto branco para contraste em fundo escuro */
+}
+
+/* Ajustes para texto em seções alternadas */
+section:nth-child(even) h1,
+section:nth-child(even) h2,
+section:nth-child(even) h3,
+section:nth-child(even) p {
+    color: var(--white);
+}
+
+section:nth-child(even) a {
+    color: var(--light-gray); /* Links em seções escuras */
+}
+
+section:nth-child(even) a:hover {
+    color: var(--white);
+}
+
+/* --- Ajustes para Links de Âncora / Scroll Suave --- */
+/* Aplica uma margem superior invisível ao elemento que é o alvo de um scroll */
+/* Isso impede que o conteúdo seja escondido por cabeçalhos fixos */
+section[id] { /* Seleciona qualquer seção que tenha um ID (como #home, #cursos) */
+    scroll-margin-top: 130px; /* Valor padrão para desktop */
+}
+
+/* --- Seção Sobre Nós --- */
+.about {
+    text-align: center;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+    margin-top: 40px;
+    max-width: 700px; /* Altere este valor para o tamanho desejado (ex: 700px, 600px) */
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--dark-gray);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Seção Sobre Nós Responsividade */
+@media (max-width: 950px) { /* Ajuste este valor também se mudar muito o max-width */
+    .video-container {
+        max-width: 90%;
+    }
+}
+
+
+/* --- Seção de Cursos --- */
+.courses {
+    text-align: center;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.course-item {
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+
+    /* Imagem de fundo padrão para os itens de curso */
+    background-image: url('imagens/logo-anik.jfif'); /* Ajuste para uma imagem padrão ou remova */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Overlay para legibilidade do texto nos itens de curso */
+.course-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Preto com 40% de transparência */
+    z-index: 1;
+}
+
+/* Garante que o texto e o botão fiquem por cima do overlay */
+.course-item h3,
+.course-item p,
+.course-item .btn-saiba-mais {
+    position: relative;
+    z-index: 2;
+    color: var(--white); /* Texto branco para contraste */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+.course-item h3 {
+    margin-bottom: 10px;
+}
+
+.course-item p {
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+.course-item .btn-saiba-mais {
+    background-color: var(--primary-red);
+    color: var(--white);
+    align-self: center;
+}
+
+.course-item .btn-saiba-mais:hover {
+    background-color: var(--dark-red);
+}
+
+/* Seção de Cursos Responsividade */
+@media (max-width: 768px) {
+    .course-grid {
+        grid-template-columns: 1fr; /* Empilha os cursos em telas menores */
+    }
+}
+
+
+/* --- Galeria de Desenhos --- */
+.gallery {
+    text-align: center; /* Centraliza o título da galeria */
+}
+
+/* Esconder itens da galeria para o filtro com transição */
+.gallery-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    background-color: var(--white);
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    flex-shrink: 0; /* Impede que os itens encolham na rolagem lateral */
+    width: 280px; /* Largura fixa para cada item da galeria */
+}
+
+.gallery-item.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    /* display: none; - Removido daqui, pois o JS manipula isso após a transição */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 180px; /* Altura fixa para as imagens da galeria */
+    object-fit: cover;
+    display: block;
+    border-radius: 5px; /* Bordas arredondadas para as imagens internas */
+}
+
+.gallery-item p {
+    margin-top: 10px;
+    color: var(--dark-gray);
+    font-size: 0.9em;
+}
+
+/* Contêiner para a Rolagem Lateral da Galeria */
+.gallery-scroll-container {
+    overflow-x: auto; /* Habilita a rolagem horizontal */
+    white-space: nowrap; /* Impede que os itens quebrem a linha */
+    padding-bottom: 20px; /* Espaço para a barra de rolagem não ficar colada */
+    -webkit-overflow-scrolling: touch; /* Melhoria de rolagem para iOS */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: var(--primary-red) var(--light-gray); /* Firefox */
+}
+
+/* Estilização da barra de rolagem */
+.gallery-scroll-container::-webkit-scrollbar {
+    height: 8px; /* Altura da barra de rolagem horizontal */
+}
+
+.gallery-scroll-container::-webkit-scrollbar-track {
+    background: var(--light-gray); /* Cor da calha da barra de rolagem */
+    border-radius: 10px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-thumb {
+    background-color: var(--primary-red); /* Cor do "polegar" */
+    border-radius: 10px;
+    border: 2px solid var(--light-gray);
+}
+
+/* Ajustes para o grid da galeria com rolagem lateral */
+.gallery-grid {
+    display: inline-flex; /*Para os itens ficarem lado a lado */
+    gap: 20px; /* Espaço entre os itens da galeria */
+    margin-top: 30px;
+    padding-right: 20px; /* Garante que o último item não fique colado na borda */
+}
+
+/* Galeria Responsividade */
+@media (max-width: 768px) {
+    .gallery-item {
+        width: 250px; /* Reduz a largura dos itens em telas menores */
+    }
+}
+
+
+/* --- Estilos para os Botões de Filtro da Galeria --- */
+.filter-buttons {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background-color: var(--light-gray);
+    color: var(--medium-gray);
+    border: 1px solid var(--border-gray);
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 25px; /* Botões mais arredondados */
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    outline: none; /* Remove a borda de foco padrão */
+}
+
+.filter-btn:hover {
+    background-color: var(--primary-red);
+    color: var(--white);
+    border-color: var(--primary-red);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-red);
+    color: var(--white);
+    border-color: var(--primary-red);
+    font-weight: bold;
+}
+
+/* Botões de Filtro Responsividade */
+@media (max-width: 768px) {
+    .filter-buttons {
+        display: flex;
+        flex-wrap: wrap; /* Permite que os botões quebrem a linha */
+        justify-content: center;
+    }
+
+    .filter-btn {
+        margin: 5px;
+        flex-grow: 1; /* Faz os botões ocuparem mais espaço */
+    }
+}
+
+/* --- Seção Encontrar Unidade --- */
+.cep-search-container {
+    background-color: var(--light-gray);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    text-align: center;
+    margin-top: 30px;
+    max-width: 600px; /* Limita a largura para melhor visualização */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cep-search-container input[type="text"] {
+    width: calc(100% - 120px); /* Ajusta para deixar espaço para o botão */
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-gray);
+    border-radius: 5px;
+    font-size: 1em;
+    vertical-align: middle; /* Alinha com o botão */
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
+}
+
+.cep-search-container button {
+    padding: 12px 20px;
+    font-size: 1em;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.error-message {
+    color: var(--primary-red);
+    font-weight: bold;
+    margin-top: -10px; /* Sobe um pouco para ficar mais perto do input */
+    margin-bottom: 15px;
+}
+
+#unitResults {
+    margin-top: 25px;
+    text-align: left;
+    border-top: 1px solid var(--border-gray);
+    padding-top: 20px;
+}
+
+#unitResults h3 {
+    color: var(--primary-red);
+    margin-bottom: 10px;
+}
+
+#unitResults .unit-item {
+    background-color: var(--white);
+    border: 1px solid var(--border-gray);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+#unitResults .unit-item p {
+    margin: 5px 0;
+}
+
+/* Responsividade para o campo de CEP */
+@media (max-width: 600px) {
+    .cep-search-container input[type="text"] {
+        width: 100%; /* Ocupa toda a largura em telas menores */
+        margin-right: 0;
+        margin-bottom: 15px; /* Espaço abaixo do input */
+    }
+
+    .cep-search-container button {
+        width: 100%; /* Botão ocupa toda a largura */
+        margin-left: 0;
+    }
+}
+
+
+/* --- Formulário de Contato e Avaliações --- */
+.contact {
+    text-align: center; /* Centraliza o título e o parágrafo da seção */
+    padding-bottom: 60px;
+}
+
+/* Contêiner para as duas colunas (formulário e avaliações) */
+.contact-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 40px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Coluna do Formulário */
+.contact-form-column {
+    flex: 1;
+    min-width: 350px;
+    max-width: 450px;
+    text-align: left;
+}
+
+/* Estilos do Formulário (ajustados para a nova coluna) */
+.contact-form-column form {
+    max-width: 100%; /* O formulário ocupa 100% da largura da sua coluna */
+    margin: 0; /* Remove a margem 'auto' para o form */
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    border: 1px solid #eee;
+    animation: fadeIn 0.5s ease-out; /* Opcional: Animação de entrada sutil */
+}
+
+/* Opcional: Animação de fade-in para a "aparição" */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--dark-gray);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-gray);
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Coluna das Avaliações */
+.contact-reviews-column {
+    flex: 1;
+    min-width: 350px;
+    max-width: 450px;
+    text-align: left;
+}
+
+/* Estilos para os itens de avaliação */
+.google-review-item {
+    background-color: var(--white);
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.google-review-item .review-text {
+    font-style: italic;
+    margin-bottom: 10px;
+    color: var(--medium-gray);
+}
+
+.google-review-item .reviewer-name {
+    font-weight: bold;
+    color: var(--dark-gray);
+    font-size: 0.9em;
+}
+
+.google-review-item .stars {
+    color: var(--gold-star); /* Cor dourada para estrelas */
+    font-size: 1.1em;
+    margin-left: 5px;
+}
+
+/* Contato/Avaliações Responsividade */
+@media (max-width: 800px) {
+    .contact-content-wrapper {
+        flex-direction: column; /* Colunas viram linhas */
+        align-items: center; /* Centraliza as colunas empilhadas */
+        gap: 30px;
+    }
+
+    .contact-form-column,
+    .contact-reviews-column {
+        min-width: unset; /* Remove a largura mínima para preencher melhor */
+        max-width: 90%; /* Ocupa quase toda a largura disponível em mobile */
+    }
+}
+
+/* --- Estilos para o Lightbox/Modo Teatro --- */
+.lightbox {
+    display: none; /* Oculta o lightbox por padrão */
+    position: fixed; /* Fixa na tela, cobrindo tudo */
+    z-index: 9999; /* Garante que fique acima de todos os outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Adiciona scroll se o conteúdo for muito grande */
+    background-color: rgba(0, 0, 0, 0.9); /* Fundo preto semitransparente */
+    padding-top: 60px; /* Espaço do topo para o botão de fechar */
+}
+
+.lightbox-content {
+    margin: auto; /* Centraliza a imagem */
+    display: block;
+    max-width: 90%; /* Largura máxima da imagem */
+    max-height: 80vh; /* Altura máxima da imagem (80% da altura da viewport) */
+    animation-name: zoom;
+    animation-duration: 0.6s;
+    object-fit: contain; /* Garante que a imagem se ajuste sem cortar ou distorcer */
+}
+
+/* Animação de Zoom para o lightbox */
+@keyframes zoom {
+    from {transform: scale(0.1);}
+    to {transform: scale(1);}
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: var(--white);
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 10000; /* Acima da imagem */
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--primary-red); /* Vermelho ao passar o mouse */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.lightbox-caption {
+    margin: 15px auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    color: #ccc; /* Um cinza claro para a legenda */
+    padding: 10px 0;
+    font-size: 1.2em;
+}
+
+/* --- Rodapé --- */
+footer {
+    background-color: var(--dark-gray); /* Fundo cinza escuro para o rodapé */
+    color: var(--white);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 20px;
+}
+
+footer .social-links a {
+    color: var(--white);
+    margin: 0 10px;
+    font-size: 1.2em;
+}
+
+footer .social-links a:hover {
+    color: var(--primary-red); /* Vermelho ao passar o mouse */
+    text-decoration: none;
+}
+
+/* CORREÇÃO FINAL DO MENU HAMBÚRGUER AO ROLAR      */
+@media (max-width: 768px) {
+  /*
+    Esta regra FORÇA a navegação a ser sempre um bloco visível
+    (mesmo que fora da tela), impedindo que a classe 'scrolled' 
+    a esconda com 'display: none'.
+    O !important garante que esta regra vença qualquer conflito.
+  */
+  header.scrolled nav {
+    display: block !important;
+  }
+}

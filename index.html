@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Anik School</title>
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script>
+                         (function(){
+                         emailjs.init("Rt5wDSGDdDjPdwP9a"); 
+                         })();
+         </script>
+    </head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="imagens/logo-anik.jfif" alt="Logo Art Anik School"></a>
+                <button class="hamburger-btn" aria-label="Abrir menu de navegação">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                 </button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li> <li><a href="#sobre">Sobre Nós</a></li> <li><a href="#cursos">Nossos Cursos</a></li>
+                    <li><a href="#galeria">Galeria de Desenhos</a></li>
+                    <li><a href="#unidades">Nossas Unidades</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Desperte o Artista em Você na Art Anik School!</h1>
+                <p>Aprenda a desenhar do zero ou aprimore suas técnicas com os melhores mestres.</p>
+                <a href="#cursos" class="btn-cta">Ver Cursos</a>
+            </div>
+        </section>
+
+        <section id="sobre" class="about">
+            <div class="container">
+                <h2>Sobre a Art Anik School</h2>
+                <p>A Art Anik School é dedicada a transformar a paixão pelo desenho em habilidade e arte. Com uma metodologia inovadora e professores experientes, oferecemos um ambiente inspirador para todos os níveis de aprendizado.</p>
+
+                <div class="video-container">
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/Y6bc5iAzfeo?si=pVyvpsDhNUJ7yjgO"title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="cursos" class="courses">
+            <div class="container">
+                <h2>Nossos Cursos</h2>
+                <div class="course-grid">
+                    <div class="course-item">
+                        <h3>Desenho Básico e fundamentos</h3>
+                        <p>Fundamentos do desenho, proporção, perspectiva e sombreamento.</p>
+                        <a href="cursos/desenho.html" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                    <div class="course-item">
+                        <h3>Curso de Mangá</h3>
+                        <p>Explore as técnicas dos quadrinhos japoneses. Crie personagens vibrantes, narrativas cativantes e dê vida aos seus próprios mangás.</p>
+                        <a href="cursos/manga.html" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                    <div class="course-item">
+                        <h3>Kawaii</h3>
+                        <p>Aprenda a criar personagens e ilustrações adoráveis no estilo japonês. Desenvolva seu traço com cores vibrantes e formas encantadoras.</p>
+                        <a href="cursos/kawaii.html" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                    <div class="course-item">
+                        <h3>Artístico</h3>
+                        <p>Domine os fundamentos do desenho clássico: proporção, luz, sombra e perspectiva. Ideal para construir uma base sólida ou aprimorar sua técnica.</p>
+                        <a href="cursos/artístico.html" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                    <div class="course-item">
+                        <h3>Moda</h3>
+                        <p>Dê vida às suas criações no papel. Aprenda a desenhar croquis, tecidos e detalhes que expressam sua visão de moda.</p>
+                        <a href="cursos/moda.html" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                    <div class="course-item">
+                        <h3>Personagens</h3>
+                        <p>Desenvolva personagens únicos do conceito à finalização. Explore anatomia, expressões e personalidade para dar vida às suas criaturas.</p>
+                        <a href="cursos/personagens.html" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                    <div class="course-item">
+                        <h3>Game</h3>
+                        <p>Mergulhe na criação de cenários, personagens e elementos visuais para videogames. Transforme suas ideias em experiências interativas.</p>
+                        <a href="cursos/game.html" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                    <div class="course-item">
+                        <h3>Inglês com Arte</h3>
+                        <p>Combine a paixão pela arte com o aprendizado de inglês! Aprimore suas habilidades em ambas as áreas de forma criativa e divertida.</p>
+                        <a href="cursos/inglês.html" class="btn-saiba-mais">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="gallery">
+            <div class="container">
+                <h2>Nossa Galeria de Arte</h2>
+
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="lapis">Lápis</button>
+                    <button class="filter-btn" data-filter="personagem">Personagem</button>
+                    <button class="filter-btn" data-filter="digital">Digital</button>
+                    <button class="filter-btn" data-filter="caricatura">Caricatura</button>
+                    <button class="filter-btn" data-filter="kawaii">Kawaii</button>
+                </div>
+
+                <div class="gallery-scroll-container">
+                    <div class="gallery-grid">
+                        <div class="gallery-item caricatura">
+                            <img src="imagens/anik-caricatura.jpg" alt="Caricatura de Aluno" >
+                            <p>Caricatura</p>
+                        </div>
+                        <div class="gallery-item lapis">
+                            <img src="imagens/anik lapis.jfif" alt="Pintura a Lápis">
+                            <p>Lápis</p>
+                        </div>
+                        <div class="gallery-item personagem">
+                            <img src="imagens/personagem.jpg" alt="Personagem de Aluno">
+                            <p>Personagem</p>
+                        </div>
+                        <div class="gallery-item personagem">
+                            <img src="imagens/personagem2.jpg" alt="Personagem de Aluno">
+                            <p>Personagem</p>
+                        </div>
+                        <div class="gallery-item kawaii">
+                            <img src="imagens/kawaii.jpg" alt="Kawaii de Aluno">
+                            <p>Kawaii</p>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+       <section id="find-unit" class="section-padding">
+    <div class="container">
+        <h2>Encontre a Unidade Mais Próxima</h2>
+        <div class="cep-search-container">
+            <input type="text" id="cepInput" placeholder="Digite seu CEP (ex: 88000-000)" maxlength="9">
+            <button id="searchCepBtn" class="btn-primary">Buscar Unidade</button>
+            <div id="cepError" class="error-message"></div>
+            <div id="unitResults">
+                </div>
+        </div>
+    </div>
+</section>
+
+        <section id="contato" class="contact">
+            <div class="container">
+                <h2>Fale Conosco e Avaliações</h2>
+                <p>Entre em contato para saber mais sobre nossos cursos ou confira o que dizem nossos alunos!</p>
+
+                <div class="contact-content-wrapper">
+                    <div class="contact-form-column">
+                        <h3>Envie sua Mensagem</h3>
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mensagem">Mensagem:</label>
+                                <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">Enviar Mensagem</button>
+                        </form>
+                    </div>
+
+                    <div class="contact-reviews-column">
+                        <h3>O Que Nossos Alunos Dizem (Google)</h3>
+                        <div class="google-review-item">
+                            <p class="review-text">Visitar a exposição da Anik Art School no Shopping Itaguaçu foi surpreendente. As obras dos alunos são incríveis, e a atmosfera inspiradora. Grande oportunidade para ver o talento florescer. Recomendo a todos!</p>
+                            <p class="reviewer-name">Alice Moura Gonçalves<span class="stars">★★★★★</span></p>
+                        </div>
+                        <div class="google-review-item">
+                            <p class="review-text">Gostaria de expressar minha gratidão à equipe da escola NiKi Art. As professoras são muito legais e extremamente queridas, sempre demonstrando dedicação e carinho no ensino. Meu filho tem se desenvolvido muito bem, e fico impressionado com o progresso dele. A exposição de artes foi excelente, muito bem bolada e cheia de criatividade. Parabéns pelo trabalho incrível! Obrigado por todo o empenho e cuidado com os alunos.</p>
+                            <p class="reviewer-name">Sulivan Wainer<span class="stars">★★★★★</span></p>
+                        </div>
+                        <div class="google-review-item">
+                            <p class="review-text">Minha filha Valentina ama as aulas da niki. Ela frequenta a sede do estreito, e adora estar lá aprendendo com o prof Gustavo</p>
+                            <p class="reviewer-name">Fernanda Fernandes <span class="stars">★★★★★</span></p>
+                        </div>
+                        <a href="https://www.google.com/search?sca_esv=237638b250c80c54&hl=pt-BR&gl=br&sxsrf=AHTn8zpCSlDcDK4VnIA7eJ2dUb3yyB5rCg:1748031433855&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzS6QqToaq2Y2NDl3TA8XL1BQ0loG26JLYK1jK0sDxj1zjrDSYzBqxmPypVs4-TT2yoiuxRQslXrbFFdx8STtUmboTS6OmR5zhph8wD2ujuR1o2Nw4wuWleU6bkNnrYhtK8KtkII%3D&q=ANIK+ART+SCHOOL+CENTRO+FLORIANOPOLIS+Coment%C3%A1rios&sa=X&ved=2ahUKEwjhia_FtLqNAxWXO7kGHZw3CUwQ0bkNegQIIhAE&biw=1680&bih=835&dpr=2" target="_blank" class="btn-saiba-mais">Ver Mais Avaliações no Google</a>
+                    </div>
+                </div>
+            </div> </section>
+    </main> <footer>
+        <div class="container">
+            <p>© 2025 Anik Art School. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/anikartschool/" target="_blank">Instagram</a>
+                <a href="https://www.youtube.com/@anikartschool0/featured" target="_blank">Youtube</a>
+                <a href="https://wa.me/message/OVI2GSZT6WMUB1" target="_blank">WhatsApp</a> </div>
+        </div>
+        <div id="lightbox" class="lightbox">
+    <span class="close-btn">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="Imagem em destaque">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+</div>
+    </footer>
+    <script>
+    document.getElementById('form-contato')?.addEventListener('submit', function(event) {
+      event.preventDefault();
+      emailjs.sendForm('SEU_SERVICE_ID', 'SEU_TEMPLATE_ID', this)
+        .then(function(response) {
+          alert('Mensagem enviada com sucesso!');
+          document.getElementById('form-contato').reset();
+        }, function(error) {
+          alert('Ocorreu um erro ao enviar a mensagem. Tente novamente.');
+          console.error(error);
+        });
+    });
+  </script>
+    <script src="script.js"></script>
+
+</body>
+</html>
