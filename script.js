@@ -188,7 +188,10 @@ function closeModal() {
 
 // *** GATILHO AUTOMÁTICO ***
 // Espera 3 segundos (3000 ms) após o carregamento da página para abrir o modal
-setTimeout(openModal, 3000);
+setTimeout(function() {
+    console.log("TEMPO ESGOTADO! TENTANDO ABRIR O MODAL AGORA!"); // Adicione esta linha
+    openModal();
+}, 3000);
 
 // --- Eventos de Fechamento ---
 
